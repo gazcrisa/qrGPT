@@ -9,12 +9,12 @@ const inter = Inter({ subsets: ['latin'] });
 
 let title = 'Medication lookup';
 let description = 'A POC';
-// let url = 'https://www.qrgpt.io';
+let url = 'https://www.qrgpt.io';
 let ogimage = 'https://www.qrgpt.io/og-image.png';
-// let sitename = 'qrGPT.io';
+let sitename = 'qrGPT.io';
 
 export const metadata: Metadata = {
-  // metadataBase: new URL(url),
+  metadataBase: new URL(url),
   title,
   description,
   icons: {
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     images: [ogimage],
     title,
     description,
-    // url: url,
-    // siteName: sitename,
+    url: url,
+    siteName: sitename,
     locale: 'en_US',
     type: 'website',
   },

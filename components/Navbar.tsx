@@ -1,18 +1,14 @@
 'use client';
-
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import NavLink from './NavLink';
-import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 const Navbar = () => {
   const [state, setState] = useState(false);
 
-  const navigation = [
-    // { title: 'Testimonials', path: '#testimonials' },
-    { title: 'Homepage', path: '/' },
-  ];
+  // const navigation = [
+  //   // { title: 'Testimonials', path: '#testimonials' },
+  //   { title: 'Homepage', path: '/' },
+  // ];
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -27,10 +23,10 @@ const Navbar = () => {
     handleState();
   }, [pathname, searchParams]);
 
-  const handleNavMenu = () => {
-    setState(!state);
-    document.body.classList.toggle('overflow-hidden');
-  };
+  // const handleNavMenu = () => {
+  //   setState(!state);
+  //   document.body.classList.toggle('overflow-hidden');
+  // };
 
   return (
     <header>

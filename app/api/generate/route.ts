@@ -38,9 +38,7 @@ export async function POST(request: NextRequest) {
       },
     );
 
-
     const responseData = await lambdaResponse.json();
-
 
     const response: MedicationResponse = {
       concepts: responseData.RxNormConcepts,
@@ -53,8 +51,12 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (e) {
+    // Create a generic error response if the error is not an instance of Error
+    let errorMessage = 'An error occurred';
     if (e instanceof Error) {
-      return new Response(e.message, { status: 400 });
+      errorMessage = e.message;
     }
+
+    return new Response(errorMessage, { status: 400 });
   }
 }
