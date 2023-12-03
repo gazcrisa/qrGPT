@@ -2,17 +2,11 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import NavLink from './NavLink';
 import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 
 const Navbar = () => {
   const [state, setState] = useState(false);
-
-  const navigation = [
-    { title: 'Testimonials', path: '#testimonials' },
-    { title: 'Homepage', path: '/' },
-  ];
 
   const pathname = usePathname();
   const searchParams = useSearchParams();

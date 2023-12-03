@@ -1,17 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
-
-// export const metadata: Metadata = {
-//   title: "Medication POC",
-//   description:
-//     "A poc",
-// };
-
-const inter = Inter({ subsets: ['latin'] });
-
-let title = 'A poc';
+let title = 'Medication POC';
 let description = '';
 let url = 'https://qr-gpt-three-fawn.vercel.app/';
 let ogimage = 'https://qr-gpt-three-fawn/og-image.png';
