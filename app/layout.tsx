@@ -1,17 +1,21 @@
-import Navbar from '@/components/Navbar';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Footer from '@/components/Footer';
-import { Analytics } from '@vercel/analytics/react';
+
+
+// export const metadata: Metadata = {
+//   title: "Medication POC",
+//   description:
+//     "A poc",
+// };
 
 const inter = Inter({ subsets: ['latin'] });
 
-let title = 'Medication lookup';
-let description = 'A POC';
-let url = 'https://www.qrgpt.io';
-let ogimage = 'https://www.qrgpt.io/og-image.png';
-let sitename = 'qrGPT.io';
+let title = 'A poc';
+let description = '';
+let url = 'https://qr-gpt-three-fawn.vercel.app/';
+let ogimage = 'https://qr-gpt-three-fawn/og-image.png';
+let sitename = 'qr-gpt-three-fawn';
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -44,15 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* <PlausibleProvider domain="med.io" /> */}
-      </head>
-      <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Analytics />
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

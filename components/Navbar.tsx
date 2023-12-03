@@ -1,14 +1,18 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import NavLink from './NavLink';
+import { signOut } from 'next-auth/react';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [state, setState] = useState(false);
 
-  // const navigation = [
-  //   // { title: 'Testimonials', path: '#testimonials' },
-  //   { title: 'Homepage', path: '/' },
-  // ];
+  const navigation = [
+    { title: 'Testimonials', path: '#testimonials' },
+    { title: 'Homepage', path: '/' },
+  ];
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -23,10 +27,10 @@ const Navbar = () => {
     handleState();
   }, [pathname, searchParams]);
 
-  // const handleNavMenu = () => {
-  //   setState(!state);
-  //   document.body.classList.toggle('overflow-hidden');
-  // };
+  const handleNavMenu = () => {
+    setState(!state);
+    document.body.classList.toggle('overflow-hidden');
+  };
 
   return (
     <header>
@@ -37,11 +41,11 @@ const Navbar = () => {
       >
         <div className="custom-screen items-center mx-auto md:flex">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            {/* <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <Image src="/box.svg" alt="logo" width={30} height={30} />
-              <div className="font-bold text-lg">QrGPT</div>
-            </Link> */}
-            {/* <div className="md:hidden">
+              <div className="font-bold text-lg">Proof of Concept</div>
+            </Link>
+            <div className="md:hidden">
               <button
                 role="button"
                 aria-label="Open the menu"
@@ -78,7 +82,7 @@ const Navbar = () => {
                   </svg>
                 )}
               </button>
-            </div> */}
+            </div>
           </div>
           <div
             className={`flex-1 pb-3 mt-8 md:pb-0 md:mt-0 md:block ${
@@ -86,6 +90,15 @@ const Navbar = () => {
             }`}
           >
             <ul className="text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium">
+              <li key="logout" className="duration-150 hover:text-gray-900">
+                <Link
+                  href="/auth/sign-in"
+                  className="block"
+                  onClick={() => signOut()}
+                >
+                  Sign out
+                </Link>
+              </li>
               {/* {navigation.map((item, idx) => {
                 return (
                   <li key={idx} className="duration-150 hover:text-gray-900">

@@ -16,4 +16,3 @@ export type Concept = {
 export interface MedicationResponse {
   concepts: Concept[];
 }
-
