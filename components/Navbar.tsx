@@ -12,7 +12,6 @@ const Navbar = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Add closing the navbar menu when navigating
     const handleState = () => {
       document.body.classList.remove('overflow-hidden');
       setState(false);
@@ -83,7 +82,7 @@ const Navbar = () => {
               state ? '' : 'hidden'
             }`}
           >
-            <ul className="text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium">
+            <ul className="text-gray-700 font-semibold justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600">
               <li key="logout" className="duration-150 hover:text-gray-900">
                 <Link
                   href="/auth/sign-in"
@@ -93,23 +92,6 @@ const Navbar = () => {
                   Sign out
                 </Link>
               </li>
-              {/* {navigation.map((item, idx) => {
-                return (
-                  <li key={idx} className="duration-150 hover:text-gray-900">
-                    <Link href={item.path} className="block">
-                      {item.title}
-                    </Link>
-                  </li>
-                );
-              })} */}
-              {/* <li>
-                <NavLink
-                  href="/start"
-                  className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline"
-                >
-                  Generate your QR Code
-                </NavLink>
-              </li> */}
             </ul>
           </div>
         </div>

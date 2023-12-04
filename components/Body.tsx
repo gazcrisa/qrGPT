@@ -75,13 +75,13 @@ const Body = () => {
         );
       }
 
-
       const data = await response.json();
 
       setResponse(data)
     } catch (error) {
       if (error instanceof Error) {
         setError(error);
+        setResponse(null);
       }
     } finally {
       setIsLoading(false);
@@ -143,15 +143,14 @@ const Body = () => {
               </h1>
               <div>
                 <div className="flex flex-col justify-center relative h-auto items-center gap-4">
-                  {response ? (
+                  {response && (
                     response.concepts.map((concept: Concept, index: number) => (
                       <div key={index} className="qr-code-container">
                         <ConceptCard concept={concept} />
                       </div>
                     ))
-                  ) : (
-                    <div className="relative flex flex-col justify-center items-center gap-y-2 w-[510px] border border-gray-300 rounded shadow group p-2 mx-auto animate-pulse bg-gray-400 aspect-square max-w-full" />
                   )}
+                  {isLoading && <LoadingDots color="black" />}
                 </div>
               </div>
             </>
