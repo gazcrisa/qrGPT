@@ -36,11 +36,17 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    console.log("GOT RESPONSE", lambdaResponse)
+
     const responseData = await lambdaResponse.json();
+
+    console.log("GOT DATA", responseData)
 
     const response: MedicationResponse = {
       concepts: responseData.RxNormConcepts,
     };
+
+    console.log("the response i will send", response)
 
     return new Response(JSON.stringify(response), {
       status: 200,
