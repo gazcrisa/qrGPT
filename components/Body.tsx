@@ -75,7 +75,9 @@ const Body = () => {
         );
       }
 
+
       const data = await response.json();
+
       setResponse(data)
     } catch (error) {
       if (error instanceof Error) {
@@ -111,7 +113,7 @@ const Body = () => {
                   type="submit"
                   disabled={isLoading}
                   className="inline-flex justify-center
-                 max-w-[200px] mx-auto w-full"
+                 max-w-[200px] w-full"
                 >
                   {isLoading ? (
                     <LoadingDots color="white" />
@@ -151,28 +153,6 @@ const Body = () => {
                     <div className="relative flex flex-col justify-center items-center gap-y-2 w-[510px] border border-gray-300 rounded shadow group p-2 mx-auto animate-pulse bg-gray-400 aspect-square max-w-full" />
                   )}
                 </div>
-                {/* {response && (
-                  <div className="flex justify-center gap-5 mt-4">
-                    <Button
-                      onClick={() =>
-                        downloadQrCode(response.image_url, 'qrCode')
-                      }
-                    >
-                      Download
-                    </Button>
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        navigator.clipboard.writeText(
-                          `https://qrgpt.io/start/${id || ''}`,
-                        );
-                        toast.success('Link copied to clipboard');
-                      }}
-                    >
-                      ✂️ Share
-                    </Button>
-                  </div>
-                )} */}
               </div>
             </>
           )}
