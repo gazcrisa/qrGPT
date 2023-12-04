@@ -27,16 +27,14 @@ export async function POST(request: NextRequest) {
   try {
     validateRequest(reqBody);
 
-    const lambdaResponse = await fetch(
-      'https://ivi7eyvgky3fyn6mmexgt4ac2y0fgbpo.lambda-url.us-east-1.on.aws/',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ medication: reqBody.medication }),
+    const apiUrl = `${process.env.API_URL}/koda/${encodeURIComponent(reqBody.medication)}`;
+
+    const lambdaResponse = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+    });
 
     const responseData = await lambdaResponse.json();
 
